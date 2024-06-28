@@ -205,6 +205,19 @@ h2, h4, h3 {
   border-top: 1px solid var(--border-color);
 }
 
+.splash-screen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: var(--background-color);
+}
+
+.splash-screen img {
+  max-width: 100%;
+  height: auto;
+}
+
 @media (max-width: 768px) {
   .inc-exp-container {
     flex-direction: column;
