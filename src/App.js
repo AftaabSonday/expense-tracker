@@ -1,25 +1,32 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import { GlobalProvider } from './context/GlobalState';
+import Header from './components/Header';
+import Balance from './components/Balance';
+import IncomeExpenses from './components/IncomeExpenses';
+import TransactionList from './components/TransactionList';
+import AddTransaction from './components/AddTransaction';
+import DateRangeSelector from './components/DateRangeSelector';
+import UserInput from './components/UserInput';
+import ThemeSwitcher from './components/ThemeSwitcher';
 import './App.css';
 
-function App() {
+const App = () => {
+  const [username, setUsername] = useState('');
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <GlobalProvider>
+      <div className="container">
+        <ThemeSwitcher />
+        <Header username={username} />
+        <UserInput setUsername={setUsername} />
+        <Balance />
+        <DateRangeSelector />
+        <IncomeExpenses />
+        <TransactionList />
+        <AddTransaction />
+      </div>
+    </GlobalProvider>
   );
-}
+};
 
 export default App;

@@ -1,38 +1,227 @@
-.App {
+:root {
+  --background-color: #ffffff;
+  --text-color: #000000;
+  --primary-color: #6200ea;
+  --secondary-color: #03dac6;
+  --button-background-color: #f1f1f1;
+  --button-text-color: #000000;
+  --input-background-color: #ffffff;
+  --input-text-color: #000000;
+  --border-color: #cccccc;
+}
+
+[data-theme="dark"] {
+  --background-color: #121212;
+  --text-color: #ffffff;
+  --primary-color: #bb86fc;
+  --secondary-color: #03dac6;
+  --button-background-color: #1f1f1f;
+  --button-text-color: #ffffff;
+  --input-background-color: #333333;
+  --input-text-color: #ffffff;
+  --border-color: #333333;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  max-width: 900px;
+  margin: 30px auto;
+  padding: 20px;
   text-align: center;
+  background-color: var(--background-color);
+  color: var(--text-color);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.theme-switcher {
+  margin-bottom: 20px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.theme-switcher label {
+  margin-right: 10px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.theme-switcher select {
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid var(--border-color);
+  background-color: var(--button-background-color);
+  color: var(--text-color);
+}
+
+.inc-exp-container {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0;
+  border: 1px solid var(--border-color);
+  padding: 10px;
+  border-radius: 5px;
+  background-color: var(--button-background-color);
+}
+
+.money {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.plus {
+  color: var(--primary-color);
+}
+
+.minus {
+  color: var(--secondary-color);
+}
+
+.remaining {
+  color: var(--text-color);
+}
+
+.list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid var(--border-color);
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  background-color: var(--button-background-color);
+}
+
+.delete-btn {
+  background-color: var(--secondary-color);
+  color: var(--text-color);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  padding: 5px;
+  margin-left: 10px;
+}
+
+.delete-btn:hover {
+  background-color: #ff1c1c;
+}
+
+.form-control {
+  margin: 10px 0;
+  text-align: left;
+}
+
+.form-control input {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+  border-radius: 5px;
+  border: 1px solid var(--border-color);
+  background-color: var(--input-background-color);
+  color: var(--input-text-color);
+}
+
+.btn {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  background-color: var(--primary-color);
+  color: var(--button-text-color);
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #3700b3;
+}
+
+.change-name-btn {
+  width: auto;
+  padding: 5px 10px;
+  font-size: 0.9rem;
+  background-color: var(--primary-color);
+  color: var(--button-text-color);
+}
+
+.change-name-btn:hover {
+  background-color: #3700b3;
+}
+
+h2, h4, h3 {
+  margin: 10px 0;
+}
+
+.date-range-selector {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  margin: 20px 0;
 }
 
-.App-link {
-  color: #61dafb;
+.date-picker, .range-slider {
+  margin: 10px 0;
+  width: 80%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.range-slider .MuiSlider-root {
+  color: var(--primary-color);
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  margin-top: 20px;
+}
+
+.buttons .MuiButton-root {
+  margin: 0 10px;
+  background-color: var(--primary-color);
+  color: var(--button-text-color);
+}
+
+.MuiAccordion-root {
+  width: 100%;
+  background-color: var(--button-background-color);
+  color: var(--text-color);
+}
+
+.MuiAccordionSummary-root {
+  background-color: var(--button-background-color);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.MuiAccordionDetails-root {
+  background-color: var(--button-background-color);
+  border-top: 1px solid var(--border-color);
+}
+
+@media (max-width: 768px) {
+  .inc-exp-container {
+    flex-direction: column;
+    align-items: center;
   }
-  to {
-    transform: rotate(360deg);
+
+  .buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .buttons .MuiButton-root {
+    width: 100%;
+    margin: 10px 0;
+  }
+
+  .date-picker, .range-slider {
+    width: 100%;
   }
 }
